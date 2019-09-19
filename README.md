@@ -8,6 +8,9 @@ java -jar sambaaccess-jar-with-dependencies.jar smb://servername/share/ user pas
 ```
 
 Actions:
-check                   		check access
-upload <folder/file>    	upload file or folder
-delete                  		delete file or folder
+
+check                   check access
+
+upload <folder/file>    upload file or folder
+
+delete                  delete file or folder
