@@ -100,11 +100,20 @@ public class SambaAccess {
         
         SmbFile smbFile = new SmbFile(samba, auth);	
         
+        //list content of folder recursive
+        checkFileRecursion(smbFile);
+    }
+    
+    private static void checkFileRecursion(SmbFile smbFile) throws MalformedURLException, SmbException, IOException {	
+        
         //list content of folder
         SmbFile[] inFiles = smbFile.listFiles();
         if (inFiles.length > 0) {
             for (SmbFile file : inFiles) {
-                System.out.println(file.getName() + " " + file.getPermission().getName());
+                System.out.println(file.getPath() + " " + file.getPermission().getName());
+                if (file.isDirectory()) {
+                    checkFileRecursion(file);
+                }
             }
         }
     }
